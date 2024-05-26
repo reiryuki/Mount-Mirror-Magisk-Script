@@ -3,7 +3,7 @@
 ## Descriptions
 - This is not a module, so this will not remain in module list.
 - Mounting mirror partitions in Magisk or KernelSU.
-- You can also use this as the first step to fix issues before installing any old Magisk modules that depend mirror detections due to the new version of Magisk removing mirror mounts.
+- You can also use this as the first step to fix issues before installing any old Magisk modules that depend mirror detections due to the new version of Magisk is removing mirror mounts.
 - Mirror is the real partitions that are not affected by modules nor magic mount, so you can modify your system files there directly without any issues.
 - WARNING!!! Modifiying real system files directly in mirror will sometimes trigger SafetyNet failure.
 
