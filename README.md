@@ -14,7 +14,7 @@
 - Magisk or KernelSU installed
 
 ## Installation Guide & Download Link
-- Install this script https://www.pling.com/p/ via Magisk app or KernelSU app only. (Does not require reboot).
+- Install this script https://www.pling.com/p/2158600/ via Magisk app or KernelSU app only. (Does not require reboot).
 
 ## Optionals
 - Global: https://t.me/androidryukimodsdiscussions/60861
@@ -36,5 +36,8 @@
 
 ## Sponsors
 - https://t.me/androidryukimodsdiscussions/2619
+
+
+
 
 
