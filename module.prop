@@ -1,0 +1,8 @@
+id=MountMirror
+name=Mount Mirror Magisk Script
+version=v0.1
+versionCode=1
+author=Rei Ryuki the Fixer
+description=Mounting mirror partitions in Magisk or KernelSU.
+
+
