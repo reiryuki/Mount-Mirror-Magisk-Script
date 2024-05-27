@@ -54,6 +54,10 @@ ui_print "  Rebooting will remove mirror by this script"
 ui_print "  automatically."
 ui_print " "
 
+ui_print "- Done"
+rm -rf /data/adb/modules*/$MODID
+exit
+
 
 
 
