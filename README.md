@@ -17,17 +17,14 @@
 - Install this script https://www.pling.com/p/2158600/ via Magisk app or KernelSU app only. (Does not require reboot).
 
 ## Optionals
-- Global: https://t.me/androidryukimodsdiscussions/60861
+- Global: https://t.me/ryukinotes/35
 
 ## Troubleshootings
-- Global: https://t.me/androidryukimodsdiscussions/29836
+- Global: https://t.me/ryukinotes/34
 
 ## Support & Bug Report
-- https://t.me/androidryukimodsdiscussions/2618
+- https://t.me/ryukinotes/54
 - If you don't do above, issues will be closed immediately
-
-## Tested on
-- Android 14 LineageOS ROM
 
 ## Credits and Contributors
 - @HuskyDG
@@ -35,7 +32,7 @@
 - You can contribute ideas about this Magisk Module here: https://t.me/androidappsportdevelopment
 
 ## Sponsors
-- https://t.me/androidryukimodsdiscussions/2619
+- https://t.me/ryukinotes/25
 
 
 
