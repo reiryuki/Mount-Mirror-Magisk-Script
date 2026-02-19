@@ -1,6 +1,6 @@
 # boot mode
 if [ "$BOOTMODE" != true ]; then
-  abort "- Please install via Magisk/KernelSU app only!"
+  abort "! Please install via Magisk/KernelSU app only!"
 fi
 
 # space
@@ -8,6 +8,7 @@ ui_print " "
 
 # var
 UID=`id -u`
+[ ! "$UID" ] && UID=0
 
 # optionals
 OPTIONALS=/data/media/"$UID"/optionals.prop
@@ -54,6 +55,7 @@ ui_print "  Rebooting will remove mirror by this script"
 ui_print "  automatically."
 ui_print " "
 
+# exit
 ui_print "- Done"
 rm -rf /data/adb/modules*/$MODID
 exit
