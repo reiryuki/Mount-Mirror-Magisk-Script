@@ -22,7 +22,7 @@ return 1
 unmount_mirror() {
 if [ "$BOOTMODE" == true ]\
 && [ "$HASMIRROR" == false ]; then
-  FOLDS="$MIRROR/* $MIRROR"
+  FOLDS="$MIRROR/apex/* $MIRROR/* $MIRROR"
   for FOLD in $FOLDS; do
     umount $FOLD
   done
@@ -30,7 +30,8 @@ if [ "$BOOTMODE" == true ]\
 fi
 }
 remount_partitions() {
-PARS="/ /system /vendor /product /system_ext /odm /my_product"
+PARS="/ /system /vendor /product /system_ext /odm
+      /my_product $APXS"
 for PAR in $PARS; do
   mount -o ro,remount $PAR
 done
@@ -68,50 +69,22 @@ else
   HASMIRROR=true
 fi
 }
-mount_vendor_to_mirror() {
-DIR=/vendor
-if [ -d $DIR ] && [ ! -d $MIRROR$DIR ]; then
-  ui_print "- Mounting $MIRROR$DIR..."
-  mkdir -p $MIRROR$DIR
-  if ! mount_mirror $DIR $MIRROR$DIR; then
-    ui_print "  Creating symlink instead"
-    rm -rf $MIRROR$DIR
-    if [ -d $MIRROR/system$DIR ]; then
-      ln -sf $MIRROR/system$DIR $MIRROR
+mount_parts_to_mirror() {
+DIRS="/vendor /product /system_ext"
+for DIR in $DIRS; do
+  if [ -d $DIR ] && [ ! -d $MIRROR$DIR ]; then
+    ui_print "- Mounting $MIRROR$DIR..."
+    mkdir -p $MIRROR$DIR
+    if ! mount_mirror $DIR $MIRROR$DIR; then
+      ui_print "  Creating symlink instead"
+      rm -rf $MIRROR$DIR
+      if [ -d $MIRROR/system$DIR ]; then
+        ln -sf $MIRROR/system$DIR $MIRROR
+      fi
     fi
+    ui_print " "
   fi
-  ui_print " "
-fi
-}
-mount_product_to_mirror() {
-DIR=/product
-if [ -d $DIR ] && [ ! -d $MIRROR$DIR ]; then
-  ui_print "- Mounting $MIRROR$DIR..."
-  mkdir -p $MIRROR$DIR
-  if ! mount_mirror $DIR $MIRROR$DIR; then
-    ui_print "  Creating symlink instead"
-    rm -rf $MIRROR$DIR
-    if [ -d $MIRROR/system$DIR ]; then
-      ln -sf $MIRROR/system$DIR $MIRROR
-    fi
-  fi
-  ui_print " "
-fi
-}
-mount_system_ext_to_mirror() {
-DIR=/system_ext
-if [ -d $DIR ] && [ ! -d $MIRROR$DIR ]; then
-  ui_print "- Mounting $MIRROR$DIR..."
-  mkdir -p $MIRROR$DIR
-  if ! mount_mirror $DIR $MIRROR$DIR; then
-    ui_print "  Creating symlink instead"
-    rm -rf $MIRROR$DIR
-    if [ -d $MIRROR/system$DIR ]; then
-      ln -sf $MIRROR/system$DIR $MIRROR
-    fi
-  fi
-  ui_print " "
-fi
+done
 }
 mount_odm_to_mirror() {
 DIR=/odm
@@ -147,17 +120,22 @@ if [ -d $DIR ] && [ ! -d $MIRROR$DIR ]; then
   ui_print " "
 fi
 }
-mount_partitions_to_mirror() {
-mount_system_to_mirror
-mount_vendor_to_mirror
-mount_product_to_mirror
-mount_system_ext_to_mirror
-mount_odm_to_mirror
-mount_my_product_to_mirror
+mount_apex_to_mirror() {
+for DIR in $APXS; do
+  if [ -d $DIR ] && [ ! -d $MIRROR$DIR ]; then
+    ui_print "- Mounting $MIRROR$DIR..."
+    mkdir -p $MIRROR$DIR
+    if ! mount_mirror $DIR $MIRROR$DIR; then
+      ui_print "  ! Failed"
+      rm -rf $MIRROR$DIR
+    fi
+    ui_print " "
+  fi
+done
 }
-magisk_setup() {
-MAGISKTMP=`magisk --path`
+mirror_setup() {
 if [ "$BOOTMODE" == true ]; then
+  MAGISKTMP=`magisk --path`
   if [ "$MAGISKTMP" ]; then
     mount -o rw,remount $MAGISKTMP
     INTERNALDIR=$MAGISKTMP/.magisk
@@ -167,7 +145,12 @@ if [ "$BOOTMODE" == true ]; then
     mount -o rw,remount $INTERNALDIR
     MIRROR=$INTERNALDIR/mirror
   fi
-  mount_partitions_to_mirror
+  APXS=`ls -dp /apex/* | grep '/$' | sed 's|/$||'`
+  mount_system_to_mirror
+  mount_parts_to_mirror
+  mount_odm_to_mirror
+  mount_my_product_to_mirror
+  mount_apex_to_mirror
 fi
 }
 

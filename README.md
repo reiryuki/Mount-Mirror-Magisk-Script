@@ -2,25 +2,36 @@
 
 ## Descriptions
 - This is not a module, so this will not remain in module list.
-- Mounting mirror partitions in Magisk or KernelSU or Kitsune Mask or Apatch.
+- Mount mirror (unmodified) partition of /system, /vendor, /product, /system_ext, /odm, /my_product, and /apex/\* in Magisk or KernelSU or Kitsune Mask or Apatch.
 - You can also use this as the first step to fix issues before installing any old Magisk modules that depend mirror detections due to the new version of Magisk is removing mirror mounts.
 - Mirror is the real partitions that are not affected by modules nor magic mount, so you can modify your system files there directly without any issues.
 - WARNING!!! Modifiying real system files directly in mirror will sometimes trigger SafetyNet failure.
 
+## Changelog
+
+v0.3
+- Mount mirror /apex/\*
+
+v0.2
+- Abort installation if fail to mount mirror system
+
+v0.1
+- Initial release
+
 ## Screenshot
-- https://t.me/androidryukimodsdiscussions/241679
+https://t.me/androidryukimodsdiscussions/241679
 
 ## Requirements
-- Magisk or Kitsune Mask or KernelSU or Apatch installed
+Magisk or Kitsune Mask or KernelSU or Apatch installed
 
 ## Installation Guide & Download Link
-- Install this script https://www.pling.com/p/2158600/ via Magisk app or KernelSU app or Kitsune Mask app or Apatch app only. (Does not require reboot).
+Install this script via Magisk app or KernelSU app or Kitsune Mask app or Apatch app only. (Does not require reboot).
 
 ## Optionals
-- Global: https://t.me/ryukinotes/35
+Global: https://t.me/ryukinotes/35
 
 ## Troubleshootings
-- Global: https://t.me/ryukinotes/34
+Global: https://t.me/ryukinotes/34
 
 ## Support & Bug Report
 - https://t.me/ryukinotes/54
@@ -29,10 +40,10 @@
 ## Credits and Contributors
 - @HuskyDG
 - https://t.me/androidryukimodsdiscussions
-- You can contribute ideas about this Magisk Module here: https://t.me/androidappsportdevelopment
+- https://t.me/androidappsportdevelopment
 
 ## Sponsors
-- https://t.me/ryukinotes/25
+https://t.me/ryukinotes/25
 
 
 

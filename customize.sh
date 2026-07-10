@@ -1,6 +1,6 @@
 # boot mode
 if [ "$BOOTMODE" != true ]; then
-  abort "! Please install via Magisk/KernelSU app only!"
+  abort "! Please install via Magisk/Kitsune Mask/KernelSU/Apatch app only!"
 fi
 
 # space
@@ -42,8 +42,8 @@ else
 fi
 ui_print " "
 
-# magisk
-magisk_setup
+# mirror
+mirror_setup
 
 # info
 ui_print "- This is not a module,"
@@ -58,6 +58,16 @@ ui_print " "
 # exit
 ui_print "- Done"
 rm -rf /data/adb/modules*/$MODID
+ui_print " "
+ui_print " "
+ui_print " "
+ui_print " "
+ui_print " "
+ui_print " "
+ui_print " "
+ui_print " "
+ui_print " "
+ui_print " "
 exit
 
 
