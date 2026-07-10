@@ -25,7 +25,7 @@ https://t.me/androidryukimodsdiscussions/241679
 Magisk or Kitsune Mask or KernelSU or Apatch installed
 
 ## Installation Guide & Download Link
-Install this script https://devuploads.com/d2nj0bzirtd3 via Magisk app or KernelSU app or Kitsune Mask app or Apatch app only. (Does not require reboot).
+Install this script via Magisk app or KernelSU app or Kitsune Mask app or Apatch app only. (Does not require reboot. Rebooting will remove mirrors automatically).
 
 ## Optionals
 Global: https://t.me/ryukinotes/35
