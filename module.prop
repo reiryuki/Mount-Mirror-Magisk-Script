@@ -1,7 +1,7 @@
 id=MountMirror
 name=Mount Mirror Magisk Script
-version=v0.3
-versionCode=3
+version=v0.4
+versionCode=4
 author=Rei Ryuki the Fixer
 description=Mount mirror (unmodified) partitions in Magisk or KernelSU or Kitsune Mask or Apatch.
 

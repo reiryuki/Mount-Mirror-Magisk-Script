@@ -1,4 +1,3 @@
-# function
 get_device() {
 DEV="`cat /proc/self/mountinfo | awk '{ if ( $5 == "'$1'" ) print $3 }' | head -1 | sed 's/:/ /g'`"
 }
@@ -145,7 +144,7 @@ if [ "$BOOTMODE" == true ]; then
     mount -o rw,remount $INTERNALDIR
     MIRROR=$INTERNALDIR/mirror
   fi
-  APXS=`ls -dp /apex/* | grep '/$' | sed 's|/$||'`
+  APXS=`ls -dp /apex/* | grep '/$' | sed -e 's|/$||' -e 's|^/apex/sharedlibs$||'`
   mount_system_to_mirror
   mount_parts_to_mirror
   mount_odm_to_mirror
@@ -153,10 +152,5 @@ if [ "$BOOTMODE" == true ]; then
   mount_apex_to_mirror
 fi
 }
-
-
-
-
-
 
 

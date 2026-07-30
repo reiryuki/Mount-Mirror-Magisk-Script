@@ -71,6 +71,3 @@ ui_print " "
 exit
 
 
-
-
-
