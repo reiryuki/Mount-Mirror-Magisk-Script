@@ -28,7 +28,7 @@ https://t.me/androidryukimodsdiscussions/241679
 Magisk or Kitsune Mask or KernelSU or Apatch installed
 
 ## Installation Guide & Download Link
-Install this script https://github.com/reiryuki/Mount-Mirror-Magisk-Script via Magisk app or KernelSU app or Kitsune Mask app or Apatch app only. (Does not require reboot. Rebooting will remove mirrors automatically).
+Install this script https://devuploads.com/m7a7eqtt82dd via Magisk app or KernelSU app or Kitsune Mask app or Apatch app only. (Does not require reboot. Rebooting will remove mirrors automatically).
 
 ## Optionals
 Global: https://t.me/ryukinotes/35
